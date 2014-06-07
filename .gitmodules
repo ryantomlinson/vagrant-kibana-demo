@@ -1,0 +1,3 @@
+[submodule "modules/kibana"]
+	path = modules/kibana
+	url = git@github.com:garethr/garethr-kibana.git

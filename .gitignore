@@ -1,0 +1,8 @@
+/.idea/*
+*.iml
+/.vagrant/*
+/node_modules/*
+/logs/*
+/package/
+/temp/
+/manifest/
