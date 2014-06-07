@@ -10,5 +10,8 @@ node 'kibana-demo' {
     require => Exec['apt-get-update']
   }
 
-  class { 'kibana': }
+  class { 'kibana':
+	  webserver   => 'apache',
+	  virtualhost => 'logs.example42.com', # Default: kibana.${::domain}
+	}
 }
