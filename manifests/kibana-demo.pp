@@ -17,14 +17,27 @@ node 'kibana-demo' {
 		require => Exec['apt-get-update']
 	}
 
+	package {'openjdk-7-jre-headless':
+		provider => apt,
+		ensure => latest,
+		require => Exec['apt-get-update']
+	}~>
+	class {'elasticsearch':
+		require => Exec['apt-get-update'],
+		package_url => 'https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.2.1.deb',
+		config => {
+	    	'cluster' => {
+	    		'name' => 'ElasticsearchDemo',
+	    		'routing.allocation.awareness.attributes' => 'rack'
+	    	}
+   		}
+	}
+
 	#logstash::configfile { 'input':
 	#	content => template('kibana-demo.redis_es.conf.erb')
 	#}
 
-	class {'elasticsearch':
-		  version => '0.90.0',
-		  require => Exec['apt-get-update'],
-	}
+	
 	#class { 'logstash': 
 	#	package_url => 'https://download.elasticsearch.org/logstash/logstash/packages/debian/logstash_1.4.1-1-bd507eb_all.deb'
 	#}
