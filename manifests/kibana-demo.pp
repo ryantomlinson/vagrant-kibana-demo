@@ -17,6 +17,24 @@ node 'kibana-demo' {
 		require => Exec['apt-get-update']
 	}
 
+	package {'nginx':
+		provider => apt,
+		ensure => latest,
+		require => Exec['apt-get-update']
+	}
+
+	package {'vim':
+		provider => apt,
+		ensure => latest,
+		require => Exec['apt-get-update']
+	}
+
+	package {'zip':
+		provider => apt,
+		ensure => latest,
+		require => Exec['apt-get-update']
+	}
+
 	package {'openjdk-7-jre-headless':
 		provider => apt,
 		ensure => latest,
@@ -27,8 +45,7 @@ node 'kibana-demo' {
 		package_url => 'https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.2.1.deb',
 		config => {
 	    	'cluster' => {
-	    		'name' => 'ElasticsearchDemo',
-	    		'routing.allocation.awareness.attributes' => 'rack'
+	    		'name' => 'elasticsearch'
 	    	}
    		}
 	}
