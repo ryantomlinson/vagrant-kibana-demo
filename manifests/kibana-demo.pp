@@ -9,9 +9,5 @@ node 'kibana-demo' {
     ensure => latest,
     require => Exec['apt-get-update']
   }
-
-  class { 'kibana':
-	  webserver   => 'apache',
-	  virtualhost => 'logs.example42.com', # Default: kibana.${::domain}
-	}
+  class { 'elasticsearch': }
 }
