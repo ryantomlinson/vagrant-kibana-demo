@@ -24,10 +24,10 @@ node 'kibana-demo' {
 	class {'elasticsearch':
 		  version => '0.90.0',
 		  require => Exec['apt-get-update'],
-	}~>
-	class { 'logstash': 
-		package_url => 'https://download.elasticsearch.org/logstash/logstash/packages/debian/logstash_1.4.1-1-bd507eb_all.deb'
 	}
+	#class { 'logstash': 
+	#	package_url => 'https://download.elasticsearch.org/logstash/logstash/packages/debian/logstash_1.4.1-1-bd507eb_all.deb'
+	#}
 	
 
 }
