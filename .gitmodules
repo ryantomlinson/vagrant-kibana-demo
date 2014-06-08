@@ -1,1 +1,7 @@
 
+[submodule "modules/logstash"]
+	path = modules/logstash
+	url = git@github.com:garethr/garethr-logstash.git
+[submodule "modules/stdlib"]
+	path = modules/stdlib
+	url = git@github.com:puppetlabs/puppetlabs-stdlib.git
