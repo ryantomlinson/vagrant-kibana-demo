@@ -10,6 +10,4 @@
 [submodule "modules/elasticsearch"]
 	path = modules/elasticsearch
 	url = git@github.com:elasticsearch/puppet-elasticsearch.git
-[submodule "modules/kibana"]
-	path = modules/kibana
-	url = git@github.com:thejandroman/kibana3.git
+
