@@ -48,16 +48,18 @@ node 'kibana-demo' {
 	    		'name' => 'elasticsearch'
 	    	}
    		}
+	}~>
+	class { 'logstash': 
+		package_url => 'https://download.elasticsearch.org/logstash/logstash/packages/debian/logstash_1.4.1-1-bd507eb_all.deb'
+	}~>
+	class { 'kibana3':
+		manage_ws => false,
 	}
+	#class { 'logstash': 
+	#	package_url => 'https://download.elasticsearch.org/logstash/logstash/packages/debian/logstash_1.4.1-1-bd507eb_all.deb'
+	#}
 
 	#logstash::configfile { 'input':
 	#	content => template('kibana-demo.redis_es.conf.erb')
 	#}
-
-	
-	#class { 'logstash': 
-	#	package_url => 'https://download.elasticsearch.org/logstash/logstash/packages/debian/logstash_1.4.1-1-bd507eb_all.deb'
-	#}
-	
-
 }
